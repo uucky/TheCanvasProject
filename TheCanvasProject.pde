@@ -8,19 +8,20 @@ ImageButton imageButton1;
 ImageButton imageButton2;
 ImageButton imageButton3;
 
+Button button0; //home
 Button button1;
 Button button2;
 Button button3;
-Button button0;
+
 
 int stage = 0;
 void setup(){
   size(1200,800);
 
-  font = loadFont("ArialMT-20.vlw");
+  font = loadFont("ArialMT-48.vlw");
   textFont(font, 60);
   
-  logo = loadImage("unpaint-logo@2x.png");
+  logo = loadImage("paintedbyyou-logo@2x.png");
   
   level1 = loadImage("level-1@2x.png");
   level2 = loadImage("level-2@2x.png");
@@ -30,15 +31,18 @@ void setup(){
   imageButton2 = new ImageButton(480, 500, level2);
   imageButton3 = new ImageButton(480, 620, level3);
 
+  button0 = new Button(50, 700, " < ");
+  
+  //unused
   button1 = new Button(50, 600, "Level 1");
   button2 = new Button(50, 500, "Level 2");
   button3 = new Button(50, 400, "Level 3");
-  button0 = new Button(50, 700, " < ");
+
 }
 void draw(){
   noStroke();
   background(255);
- //button1.draw();
+ // button1.draw();
  // button2.draw();
  // button3.draw();
  
@@ -68,7 +72,7 @@ void stageSelector() {
 }
 
 void home(){
-  image(logo, 200, 100);
+  image(logo, 200, 35);
     
   imageButton1.draw();
   imageButton2.draw();
@@ -106,9 +110,7 @@ void mousePressed(){
     stage = 0;
   }
   
-  if(button1.pressed()){
-    println("button1 pressed!");
-  }
+/**
   if(button1.pressed()){
     println("button1 pressed!");
   }
@@ -118,6 +120,7 @@ void mousePressed(){
   if(button3.pressed()){
     println("button3 pressed!");
   }
+**/
 
 }
 
@@ -136,7 +139,7 @@ class ImageButton {
     if(pressed()){
       fill(0);
     }
-    rect(x, y, 240, 100);
+    rect(x, y, 240, 100); //background
     image(label, x, y);
   }
   
